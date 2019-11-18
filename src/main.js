@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from "vue";
+import Eportfolio from "./Eportfolio.vue";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(Eportfolio)
+}).$mount("#app");
