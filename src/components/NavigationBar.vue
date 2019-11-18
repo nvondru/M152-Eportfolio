@@ -1,17 +1,27 @@
 <template>
   <nav class="navigation-bar">
-    <a href>Pictures</a>
+    <a ref="navItem1" href>Pictures</a>
     <a href>
       <img class="logo" src="../assets/logo.svg" alt="logo for eportfolio" />
     </a>
-    <a href>Pictures</a>
+    <a ref="navItem2" href>Film</a>
   </nav>
 </template>
 
 <script>
+import gsap from "gsap";
+
 export default {
   name: "NavigationBar",
-  props: {}
+  props: {},
+  mounted() {
+    gsap.fromTo(
+      [this.$refs.navItem1, this.$refs.navItem2],
+      2,
+      { opacity: 0 },
+      { opacity: 1 }
+    );
+  }
 };
 </script>
 
@@ -21,17 +31,21 @@ export default {
   width: 100%;
   display: grid;
   background-color: #997c67;
-  position: relative;
+  position: absolute;
+  z-index: 10;
   grid-template-columns: 4fr 1fr 4fr;
-  max-height: 100px;
 }
 .logo {
-  width: 100%;
-  height: 100%;
-  max-height: 80px;
+  width: 10vh;
+  height: 10vh;
 }
+
 a {
   color: #6e352c;
-  font-size: ;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 30px;
 }
 </style>

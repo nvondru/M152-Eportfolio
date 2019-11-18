@@ -11,6 +11,7 @@ export default {
 <style scoped>
 .content-container {
   width: 100%;
+  height: 100%;
 
   /* #CF5230 */
   background-color: #dba72e;

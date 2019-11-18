@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <NavigationBar></NavigationBar>
-    <ContentContainer></ContentContainer>
+    <NavigationBar v-if="loaded"></NavigationBar>
+    <ContentContainer v-if="loaded"></ContentContainer>
+    <StartOverlay @setLoaded="setLoaded"></StartOverlay>
   </div>
 </template>
 
@@ -9,26 +10,42 @@
 import NavigationBar from "./components/NavigationBar.vue";
 import Logo from "./components/Logo.vue";
 import ContentContainer from "./components/ContentContainer.vue";
+import StartOverlay from "./components/StartOverlay.vue";
+
+import gsap from "gsap";
 
 export default {
   name: "e-portfolio",
   components: {
     NavigationBar,
     Logo,
-    ContentContainer
+    ContentContainer,
+    StartOverlay
+  },
+  data() {
+    return {
+      loaded: false
+    };
+  },
+  methods: {
+    setLoaded(status) {
+      this.loaded = status;
+    }
   }
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
+* {
+  font-family: "Nunito Sans", sans-serif;
+}
 #app {
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   padding: 0px;
   margin: 0px;
-  display: grid;
-  grid-template-rows: 1fr 9fr;
   overflow: hidden;
+  background-color: #cf5230;
 }
 html,
 body {
