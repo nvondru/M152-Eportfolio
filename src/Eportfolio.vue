@@ -1,11 +1,7 @@
 <template>
   <div id="app" ref="app" class="noEvents">
     <div class="bar--red"></div>
-    <NavigationBar
-      @navigate="setNavigationTarget"
-      @logoLoaded="loadWebsite"
-      :scrolledPercent="scrolledPercent"
-    ></NavigationBar>
+    <NavigationBar @logoLoaded="loadWebsite" :scrolledPercent="scrolledPercent"></NavigationBar>
     <ContentContainer @scrolled="setScrolled" :loaded="loaded" :navigationTarget="target"></ContentContainer>
   </div>
 </template>
@@ -36,13 +32,13 @@ export default {
       var timeline = gsap.timeline({
         onComplete: () => this.$refs.app.classList.remove("noEvents")
       });
-      timeline.to(this.$refs.app, 2, { gridTemplateRows: "0vh 10vh 90vh" });
+      timeline.to(this.$refs.app, 1.5, {
+        gridTemplateRows: "0vh 10vh 90vh",
+        ease: "EaseInOut"
+      });
     },
     setScrolled(scrolledPercent) {
       this.scrolledPercent = scrolledPercent;
-    },
-    setNavigationTarget(target) {
-      this.target = target;
     }
   }
 };
@@ -59,7 +55,6 @@ export default {
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  background-color: #cf5230;
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
 }
@@ -73,5 +68,8 @@ body {
 }
 ::-webkit-scrollbar {
   display: none;
+}
+.bar--red {
+  background-color: #cf5230;
 }
 </style>

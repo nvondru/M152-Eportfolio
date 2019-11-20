@@ -1,37 +1,42 @@
 <template>
   <div @scroll="handleScroll($event)" class="content-container" ref="contentContainer">
-    <div class="content" ref="content">
-      <section id="welcome" class="content__welcome" ref="welcome">
+    <div id="welcome" class="content" ref="content">
+      <section class="content__welcome" ref="welcome">
         <hr />
         <h1>Welcome to my E-Portfolio "Juggling in autumn"</h1>
         <hr />
-        <p>The work in this Portfolio is dedicated to the arts of Juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
-        <p>The logo was built first and serves as core element for the rest of the Website.</p>
-        <p class="logo">
-          <Logo></Logo>
-        </p>
+        <article>
+          <p>The work in this Portfolio is dedicated to the arts of juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
+          <p>The logo was built first and serves as the core element for the rest of the website.</p>
+          <img @click="openModal($event)" class="logo" src="../assets/logo.svg" alt />
+        </article>
       </section>
       <section id="pictures" class="content__pictures" ref="pictures">
         <hr />
         <h1>Pictures</h1>
         <hr />
-        <p class="pictureContainer">
-          <img src="../assets/forestGate.jpg" alt />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. At consequatur, neque veniam aut ad omnis id quia voluptas nisi voluptate. Minus rerum ullam a neque ipsum dolores ducimus odio atque sed, minima, doloribus voluptates consequuntur obcaecati, exercitationem nulla eum perferendis vero sequi molestias! Et doloribus, fuga saepe temporibus incidunt quis asperiores dolore nostrum illo alias provident at nesciunt, cum fugit! Temporibus velit doloribus incidunt labore similique suscipit placeat animi libero corporis pariatur ad, facilis cupiditate aliquam eveniet, recusandae ducimus at saepe modi inventore. Veniam assumenda reprehenderit aliquam similique cumque voluptatibus ut accusamus doloribus voluptatum ipsum odio, quidem eligendi magnam deserunt omnis magni inventore sit? Amet modi laborum neque voluptatibus eum, deleniti eius odit repudiandae nemo ratione soluta blanditiis sint? Cupiditate sunt vero totam neque assumenda quas repudiandae ducimus architecto ea hic exercitationem blanditiis adipisci delectus ipsam, pariatur modi laboriosam molestiae quis qui. Eos velit corrupti eligendi totam animi, ab deserunt.
-        </p>
+        <article class="articleContainer">
+          <img @click="openModal($event)" src="../assets/forestGate.jpg" alt />
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
+        </article>
+        <article class="articleContainer">
+          <img @click="openModal($event)" src="../assets/autumnLeaves.jpg" alt />
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
+        </article>
       </section>
       <section id="movie" class="content__film" ref="movie">
         <hr />
         <h1>Movie</h1>
         <hr />
-        <p class="movieContainer">
+        <article class="articleContainer">
           <iframe
             src="https://www.youtube.com/embed/TGcpovKTULM"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-        </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit unde ducimus fugit dignissimos libero commodi dolorem dicta veritatis harum ut, hic architecto nisi a quaerat necessitatibus tempora modi sed maiores nesciunt consequatur accusamus totam animi aliquam! Consequuntur nihil nam atque illo ad distinctio, dolorum facilis. Repellat debitis necessitatibus quisquam, officia odio reiciendis? Corrupti, impedit. Vel sunt labore obcaecati sit, illum eum praesentium perferendis voluptatum in, id harum sequi cum, neque ipsam corporis laborum est ad atque quaerat reiciendis distinctio itaque culpa nostrum? Necessitatibus nesciunt aperiam vero cupiditate qui, magni ab quas quos doloremque nihil accusamus a, dolorum ipsam eligendi. Quia.</p>
+        </article>
       </section>
     </div>
   </div>
@@ -45,17 +50,14 @@ export default {
   components: {
     Logo
   },
-  props: ["loaded", "navigationTarget"],
+  props: ["loaded"],
   watch: {
     loaded: {
       handler() {
         if (this.loaded) {
-          gsap.to(this.$refs.content, 2, { opacity: 1, display: "block" });
+          gsap.to(this.$refs.content, 1.5, { opacity: 1, display: "block" });
         }
       }
-    },
-    navigationTarget: {
-      handler() {}
     }
   },
   methods: {
@@ -67,6 +69,9 @@ export default {
         document.body.clientHeight / 10;
       let scrolledPercent = Math.round((scrolledUnits / height) * 100);
       this.$emit("scrolled", scrolledPercent);
+    },
+    openModal(event) {
+      console.log(event.target.src);
     }
   }
 };
@@ -81,31 +86,27 @@ export default {
 
   /* #CF5230 */
   background-color: #dba72e;
-  padding: 2vw 15vw;
   box-sizing: border-box;
 }
-@media only screen and (max-width: 900px) {
-  .content-container {
-    padding: 2vw 6vw;
-  }
-  p {
-    font-size: 2px;
-  }
-}
+
 .content {
   opacity: 0;
   display: none;
+  padding: 2vw 15vw;
 }
 hr {
   background-color: #6e352c;
   color: #6e352c;
   border: 2px #6e352c solid;
 }
-.pictureContainer {
-  padding: 4% 10%;
+.articleContainer {
+  margin: 4% 10%;
+  box-sizing: border-box;
 }
 img {
   width: 100%;
+  border-radius: 1vw;
+  cursor: pointer;
 }
 p {
   font-size: 1.5rem;
@@ -116,5 +117,17 @@ h1 {
 iframe {
   width: 64vw;
   height: 36vw;
+}
+.logo {
+  max-width: 400px;
+}
+
+@media only screen and (max-width: 900px) {
+  .content {
+    padding: 2vw 6vw;
+  }
+  p {
+    font-size: 1rem;
+  }
 }
 </style>

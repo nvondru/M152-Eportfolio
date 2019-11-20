@@ -1,11 +1,15 @@
 <template>
-  <nav class="navigation-bar" ref="navigationBar">
-    <a @click="handleClick('pictures')" class="link" href="#pictures">Pictures</a>
-    <a @click="handleClick('welcome')" class="logo" ref="logo" href="#welcome">
-      <Logo :scrolledPercent="scrolledPercent" @logoLoaded="loadNavigationBar"></Logo>
-    </a>
-    <a @click="handleClick('movie')" class="link" href="#movie">Movie</a>
-  </nav>
+  <header id="header">
+    <div ref="progressBar" class="progressBar"></div>
+
+    <nav class="navigation-bar" ref="navigationBar">
+      <a class="link" href="#pictures">Pictures</a>
+      <a class="logo" ref="logo" href="#welcome">
+        <Logo :scrolledPercent="scrolledPercent" @logoLoaded="loadNavigationBar"></Logo>
+      </a>
+      <a class="link" href="#movie">Movie</a>
+    </nav>
+  </header>
 </template>
 
 <script>
@@ -26,13 +30,18 @@ export default {
     loadNavigationBar() {
       this.$emit("logoLoaded");
       var timeline = gsap.timeline();
-      timeline.to(this.$refs.navigationBar, 2, {
-        gridTemplateColumns: "1fr 9vh 1fr"
+      timeline.to(this.$refs.navigationBar, 1.5, {
+        gridTemplateColumns: "1fr 9vh 1fr",
+        ease: "EaseInOut"
       });
-      timeline.to(".link", 2, { opacity: 1 }, "<");
-    },
-    handleClick(target) {
-      this.$emit("navigate", target);
+      timeline.to(".link", 1, { opacity: 1.5, ease: "EaseInOut" }, "<");
+    }
+  },
+  watch: {
+    scrolledPercent: {
+      handler() {
+        this.$refs.progressBar.style.width = this.scrolledPercent + "%";
+      }
     }
   }
 };
@@ -42,9 +51,16 @@ export default {
 <style scoped>
 .navigation-bar {
   display: grid;
-  background-color: #997c67;
   grid-template-columns: 33.33vw 33.33vw 33.33vw;
   text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: #997c67;
+}
+
+#header {
+  width: 100%;
+  height: 100%;
 }
 
 a {
@@ -55,10 +71,21 @@ a {
   font-size: 30px;
   cursor: pointer;
   transition: transform 100ms;
+  position: relative;
+  z-index: 10;
 }
 
 .link {
   opacity: 0;
+}
+
+.progressBar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 10vh;
+  background-color: #dba72e;
+  transition: width 200ms ease-out;
 }
 
 @media only screen and (max-width: 600px) {
