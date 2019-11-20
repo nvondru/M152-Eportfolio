@@ -1,16 +1,18 @@
 <template>
-  <div id="app">
-    <NavigationBar v-if="loaded"></NavigationBar>
-    <ContentContainer v-if="loaded"></ContentContainer>
-    <StartOverlay @setLoaded="setLoaded"></StartOverlay>
+  <div id="app" ref="app" class="noEvents">
+    <div class="bar--red"></div>
+    <NavigationBar
+      @navigate="setNavigationTarget"
+      @logoLoaded="loadWebsite"
+      :scrolledPercent="scrolledPercent"
+    ></NavigationBar>
+    <ContentContainer @scrolled="setScrolled" :loaded="loaded" :navigationTarget="target"></ContentContainer>
   </div>
 </template>
 
 <script>
 import NavigationBar from "./components/NavigationBar.vue";
-import Logo from "./components/Logo.vue";
 import ContentContainer from "./components/ContentContainer.vue";
-import StartOverlay from "./components/StartOverlay.vue";
 
 import gsap from "gsap";
 
@@ -18,18 +20,29 @@ export default {
   name: "e-portfolio",
   components: {
     NavigationBar,
-    Logo,
-    ContentContainer,
-    StartOverlay
+    ContentContainer
   },
   data() {
     return {
-      loaded: false
+      loaded: false,
+      scrolledPercent: 0,
+      target: "welcome"
     };
   },
+
   methods: {
-    setLoaded(status) {
-      this.loaded = status;
+    loadWebsite() {
+      this.loaded = true;
+      var timeline = gsap.timeline({
+        onComplete: () => this.$refs.app.classList.remove("noEvents")
+      });
+      timeline.to(this.$refs.app, 2, { gridTemplateRows: "0vh 10vh 90vh" });
+    },
+    setScrolled(scrolledPercent) {
+      this.scrolledPercent = scrolledPercent;
+    },
+    setNavigationTarget(target) {
+      this.target = target;
     }
   }
 };
@@ -39,6 +52,7 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap");
 * {
   font-family: "Nunito Sans", sans-serif;
+  color: #6e352c;
 }
 #app {
   height: 100vh;
@@ -46,10 +60,18 @@ export default {
   margin: 0px;
   overflow: hidden;
   background-color: #cf5230;
+  display: grid;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+.noEvents {
+  pointer-events: none;
 }
 html,
 body {
   margin: 0px;
   padding: 0px;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>
