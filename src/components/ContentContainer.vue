@@ -16,14 +16,17 @@
         <h1>Pictures</h1>
         <hr />
         <article class="articleContainer">
-          <div class="imageContainer">
+          <div class="image__container">
             <img @click="openModal($event)" src="../assets/forestGate.jpg" alt />
             <img class="image--original" src="../assets/forestGateOriginal.jpg" alt />
           </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
         </article>
         <article class="articleContainer">
-          <img @click="openModal($event)" src="../assets/autumnLeaves.jpg" alt />
+          <div class="image__container">
+            <img @click="openModal($event)" src="../assets/autumnLeaves.jpg" alt />
+            <img class="image--original" src="../assets/autumnLeavesOriginal.jpg" alt />
+          </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
         </article>
       </section>
@@ -103,7 +106,6 @@ hr {
 }
 .articleContainer {
   margin: 4% 10%;
-  box-sizing: border-box;
 }
 img {
   width: 100%;
@@ -114,15 +116,16 @@ img {
   display: block;
 }
 .image--original {
-  position: relative;
+  position: absolute;
   transform: translateY(-100%);
-  transition: opacity 1000ms ease-in;
+  transition: opacity 600ms ease-in, transform 600ms ease-in;
 }
 
 .image--original:hover {
   opacity: 0;
 }
 .image__container {
+  position: relative;
 }
 p {
   font-size: 1.5rem;
@@ -136,6 +139,7 @@ iframe {
 }
 .logo {
   max-width: 400px;
+  display: initial;
 }
 
 @media only screen and (max-width: 1200px) {
