@@ -5,7 +5,7 @@
         <hr />
         <h1>Welcome to my E-Portfolio "Juggling in autumn"</h1>
         <hr />
-        <article>
+        <article class="articleContainer">
           <p>The work in this Portfolio is dedicated to the arts of juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
           <p>The logo was built first and serves as the core element for the rest of the website.</p>
           <img @click="openModal($event)" class="logo" src="../assets/logo.svg" alt />
@@ -16,7 +16,10 @@
         <h1>Pictures</h1>
         <hr />
         <article class="articleContainer">
-          <img @click="openModal($event)" src="../assets/forestGate.jpg" alt />
+          <div class="imageContainer">
+            <img @click="openModal($event)" src="../assets/forestGate.jpg" alt />
+            <img class="image--original" src="../assets/forestGateOriginal.jpg" alt />
+          </div>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
         </article>
         <article class="articleContainer">
@@ -55,7 +58,7 @@ export default {
     loaded: {
       handler() {
         if (this.loaded) {
-          gsap.to(this.$refs.content, 1.5, { opacity: 1, display: "block" });
+          gsap.to(this.$refs.content, 1.5, { opacity: 1, ease: "EaseInOut" });
         }
       }
     }
@@ -91,8 +94,7 @@ export default {
 
 .content {
   opacity: 0;
-  display: none;
-  padding: 2vw 15vw;
+  padding: 2vw 12vw;
 }
 hr {
   background-color: #6e352c;
@@ -107,6 +109,20 @@ img {
   width: 100%;
   border-radius: 1vw;
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}
+.image--original {
+  position: relative;
+  transform: translateY(-100%);
+  transition: opacity 1000ms ease-in;
+}
+
+.image--original:hover {
+  opacity: 0;
+}
+.image__container {
 }
 p {
   font-size: 1.5rem;
@@ -122,12 +138,27 @@ iframe {
   max-width: 400px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .content {
+    padding: 2vw 8vw;
+  }
+  .articleContainer {
+    margin: 4% 6%;
+  }
+  p {
+    font-size: 1.3rem;
+  }
+}
+
 @media only screen and (max-width: 900px) {
   .content {
     padding: 2vw 6vw;
   }
+  .articleContainer {
+    margin: 4% 4%;
+  }
   p {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 </style>
