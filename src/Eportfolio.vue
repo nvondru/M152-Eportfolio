@@ -1,8 +1,12 @@
 <template>
   <div id="app" ref="app" class="noEvents">
     <div class="bar--red"></div>
-    <NavigationBar @logoLoaded="loadWebsite" :scrolledPercent="scrolledPercent"></NavigationBar>
-    <ContentContainer @scrolled="setScrolled" :loaded="loaded" :navigationTarget="target"></ContentContainer>
+    <NavigationBar
+      @logoLoaded="loadWebsite"
+      :scrolledPercent="scrolledPercent"
+      :activeContent="activeContent"
+    ></NavigationBar>
+    <ContentContainer @scrolled="setScrolled" :loaded="loaded"></ContentContainer>
   </div>
 </template>
 
@@ -22,7 +26,7 @@ export default {
     return {
       loaded: false,
       scrolledPercent: 0,
-      target: "welcome"
+      activeContent: "welcome"
     };
   },
 
@@ -37,8 +41,9 @@ export default {
         ease: "EaseInOut"
       });
     },
-    setScrolled(scrolledPercent) {
+    setScrolled(scrolledPercent, activeContent) {
       this.scrolledPercent = scrolledPercent;
+      this.activeContent = activeContent;
     }
   }
 };

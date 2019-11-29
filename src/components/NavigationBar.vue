@@ -21,7 +21,7 @@ export default {
   components: {
     Logo
   },
-  props: ["scrolledPercent"],
+  props: ["scrolledPercent", "activeContent"],
   data() {
     return {};
   },
@@ -41,6 +41,17 @@ export default {
     scrolledPercent: {
       handler() {
         this.$refs.progressBar.style.width = this.scrolledPercent + "%";
+      }
+    },
+    activeContent: {
+      handler() {
+        console.log(this.activeContent);
+
+        if (this.activeContent === "pictures") {
+          this.$refs.progressBar.style.backgroundColor = "#cf5230";
+        } else if (this.activeContent === "movie") {
+          this.$refs.progressBar.style.backgroundColor = "#dba72e";
+        }
       }
     }
   }
@@ -85,7 +96,7 @@ a {
   left: 0px;
   height: 10vh;
   background-color: #dba72e;
-  transition: width 200ms ease-out;
+  transition: width 200ms ease-out, background-color 250ms ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {
