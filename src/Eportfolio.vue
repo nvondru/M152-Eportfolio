@@ -6,13 +6,21 @@
       :scrolledPercent="scrolledPercent"
       :activeContent="activeContent"
     ></NavigationBar>
-    <ContentContainer @scrolled="setScrolled" :loaded="loaded"></ContentContainer>
+    <ContentContainer
+      @scrolled="setScrolled"
+      @reachedFirstPicture="showTutorialPanel"
+      :loaded="loaded"
+    ></ContentContainer>
+    <transition name="fade">
+      <TutorialPanel v-if="tutorialActive" @closeTutorialPanel="tutorialActive = false"></TutorialPanel>
+    </transition>
   </div>
 </template>
 
 <script>
 import NavigationBar from "./components/NavigationBar.vue";
 import ContentContainer from "./components/ContentContainer.vue";
+import TutorialPanel from "./components/TutorialPanel";
 
 import gsap from "gsap";
 
@@ -20,13 +28,16 @@ export default {
   name: "e-portfolio",
   components: {
     NavigationBar,
-    ContentContainer
+    ContentContainer,
+    TutorialPanel
   },
   data() {
     return {
       loaded: false,
       scrolledPercent: 0,
-      activeContent: "welcome"
+      activeContent: "welcome",
+      tutorialShown: false,
+      tutorialActive: false
     };
   },
 
@@ -44,6 +55,12 @@ export default {
     setScrolled(scrolledPercent, activeContent) {
       this.scrolledPercent = scrolledPercent;
       this.activeContent = activeContent;
+    },
+    showTutorialPanel() {
+      if (!this.tutorialShown) {
+        this.tutorialShown = true;
+        this.tutorialActive = true;
+      }
     }
   }
 };
@@ -76,5 +93,12 @@ body {
 }
 .bar--red {
   background-color: #cf5230;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease-in-out;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

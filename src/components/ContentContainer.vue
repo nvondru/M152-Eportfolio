@@ -17,7 +17,7 @@
           <h1>Pictures</h1>
           <hr />
           <article class="articleContainer">
-            <div class="image__container">
+            <div class="image__container" ref="firstPicture">
               <img
                 class="image--processed"
                 @click="openModal($event)"
@@ -62,16 +62,20 @@
         </section>
       </section>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import gsap from "gsap";
 import Logo from "./Logo";
+import Footer from "./Footer";
+
 export default {
   name: "ContentContainer",
   components: {
-    Logo
+    Logo,
+    Footer
   },
   props: ["loaded"],
   data() {
@@ -95,27 +99,7 @@ export default {
       }
     }
   },
-  mounted() {
-    let timeline = gsap.timeline({
-      onComplete: () => {
-        setTimeout(() => {
-          timeline.reverse();
-        }, 500);
-      },
-      onReverseComplete: () => {
-        setTimeout(() => {
-          timeline.play();
-        }, 2000);
-      }
-    });
-
-    timeline.fromTo(
-      ".image--original",
-      2,
-      { opacity: 1 },
-      { opacity: 0, ease: "EaseInOut" }
-    );
-  },
+  mounted() {},
   methods: {
     handleScroll(event) {
       this.scrolledUnits = this.$refs.contentContainer.scrollTop;
@@ -131,14 +115,18 @@ export default {
         this.activeContent = "pictures";
       }
 
+      if (this.scrolledTo("pictures")) {
+        this.$emit("reachedFirstPicture");
+      }
+
       this.$emit("scrolled", scrolledPercent, this.activeContent);
     },
     openModal(event) {
       console.log(event.target.src);
     },
     scrolledTo(elem) {
-      console.log(this.scrolledUnits);
-      console.log(this.$refs[elem].offsetTop - document.body.clientHeight / 10);
+      // console.log(this.scrolledUnits);
+      // console.log(this.$refs[elem].offsetTop - document.body.clientHeight / 10);
 
       let elemPosition =
         this.$refs[elem].offsetTop - document.body.clientHeight / 10;
@@ -177,6 +165,14 @@ export default {
   background-color: #cf5230;
   padding: 2vw 12vw;
 }
+.content--red * {
+  color: #e6c098;
+}
+.content--red hr {
+  background-color: #e6c098;
+  color: #e6c098;
+  border: 2px #e6c098 solid;
+}
 hr {
   background-color: #6e352c;
   color: #6e352c;
@@ -196,12 +192,12 @@ img {
 .image--original {
   position: absolute;
   transform: translateY(-100%);
-  /* transition: opacity 600ms ease-in, transform 600ms ease-in; */
+  transition: opacity 600ms ease-in, transform 600ms ease-in;
 }
 
-/* .image--original:hover {
+.image--original:hover {
   opacity: 0;
-} */
+}
 .image__container {
   position: relative;
 }
