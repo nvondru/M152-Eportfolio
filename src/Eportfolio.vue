@@ -10,9 +10,14 @@
       @scrolled="setScrolled"
       @reachedFirstPicture="showTutorialPanel"
       :loaded="loaded"
+      ref="contentContainer"
     ></ContentContainer>
     <transition name="fade">
-      <TutorialPanel v-show="tutorialActive" @closeTutorialPanel="tutorialActive = false"></TutorialPanel>
+      <TutorialPanel
+        v-show="tutorialActive"
+        @closeTutorialPanel="tutorialActive = false"
+        @openImageModal="openImageModal"
+      ></TutorialPanel>
     </transition>
   </div>
 </template>
@@ -61,6 +66,9 @@ export default {
         this.tutorialShown = true;
         this.tutorialActive = true;
       }
+    },
+    openImageModal(imgName) {
+      this.$refs.contentContainer.createModal(imgName);
     }
   }
 };

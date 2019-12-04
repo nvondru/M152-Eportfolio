@@ -9,6 +9,8 @@
       class="image__container"
       @mouseenter="stepTo(2); setImageState('after');"
       @mouseleave="stepTo(3); setImageState('before');"
+      @click="openImageModal($event)"
+      @contextmenu="openImageModal($event)"
       ref="firstPicture"
     >
       <img class="image--processed" src="../assets/forestGate.jpg" alt />
@@ -17,8 +19,18 @@
     <transition name="fade" mode="out-in">
       <h3 v-if="!isMobile && tutorial.step === 1" key="step1">Hover over the picture</h3>
       <h3 v-if="!isMobile && tutorial.step === 2" key="step2">Hover away</h3>
+      <h3
+        v-if="!isMobile && tutorial.step === 3"
+        key="step3"
+      >Click on an image to view it in fullscreen</h3>
       <h3 v-if="isMobile && tutorial.step === 1" key="mobileStep1">Tap the picture</h3>
       <h3 v-if="isMobile && tutorial.step === 2" key="mobileStep2">Tap somewhere outside the picture</h3>
+      <h3
+        v-if="isMobile && tutorial.step === 3"
+        key="mobileStep3"
+      >Tap and hold on an image to view it in fullscreen</h3>
+    </transition>
+    <transition name="fade">
       <div v-if="tutorial.step === 3" class="btn" @click="closeTutorialPanel" key="step3">Got it</div>
     </transition>
   </div>
@@ -49,6 +61,22 @@ export default {
     },
     setImageState(state) {
       this.image.state = state;
+    },
+    openImageModal(event) {
+      if (
+        this.tutorial.step === 3 &&
+        this.isMobile &&
+        event.type === "contextmenu"
+      ) {
+        event.preventDefault();
+        this.$emit("openImageModal", "forestGate");
+      } else if (
+        this.tutorial.step === 3 &&
+        !this.isMobile &&
+        event.type === "click"
+      ) {
+        this.$emit("openImageModal", "forestGate");
+      }
     }
   },
   mounted() {
@@ -76,7 +104,7 @@ export default {
   z-index: 1000;
   text-align: center;
   color: white;
-  padding: 0vw 10vw;
+  padding: 0vw 15vw;
   box-sizing: border-box;
 }
 h3,
@@ -123,5 +151,10 @@ img {
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+@media (orientation: portrait) {
+  #tutorialPanel {
+    padding: 0vw 5vw;
+  }
 }
 </style>

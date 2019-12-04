@@ -31,7 +31,7 @@ export default {
   width: 100vw;
   height: 100vh;
   background-color: #000000c2;
-  z-index: 1000;
+  z-index: 2000;
 }
 img {
   width: 100%;
@@ -44,7 +44,7 @@ img {
 .image--original {
   position: absolute;
   transform: translateY(-100%);
-  animation: revealImage 4s infinite 3s;
+  animation: revealImage 4s infinite 1s;
 }
 
 .image__container {
