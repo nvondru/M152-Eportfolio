@@ -45,8 +45,6 @@ export default {
     },
     activeContent: {
       handler() {
-        console.log(this.activeContent);
-
         if (this.activeContent === "pictures") {
           this.$refs.progressBar.style.backgroundColor = "#cf5230";
         } else if (this.activeContent === "movie") {

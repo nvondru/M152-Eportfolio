@@ -12,7 +12,7 @@
       :loaded="loaded"
     ></ContentContainer>
     <transition name="fade">
-      <TutorialPanel v-if="tutorialActive" @closeTutorialPanel="tutorialActive = false"></TutorialPanel>
+      <TutorialPanel v-show="tutorialActive" @closeTutorialPanel="tutorialActive = false"></TutorialPanel>
     </transition>
   </div>
 </template>

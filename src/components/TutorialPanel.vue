@@ -72,7 +72,7 @@ export default {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-color: #4e4e4ec7;
+  background-color: #000000b9;
   z-index: 1000;
   text-align: center;
   color: white;
@@ -91,6 +91,7 @@ img {
   margin: 0px;
   padding: 0px;
   display: block;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .image--original {
   position: absolute;
