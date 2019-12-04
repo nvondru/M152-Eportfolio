@@ -1,6 +1,5 @@
 <template>
-  <div class="imageModal">
-    <img src="../assets/logo.svg" alt class="closeBtn" @click="closeImageModal" />
+  <div class="imageModal" @click="closeImageModal">
     <div class="image__container">
       <img class="image--processed" :src="resolveImgUrl(imgName)" alt />
       <img class="image--original" :src="resolveImgUrl(imgName + 'Original')" alt />
@@ -12,16 +11,6 @@
 export default {
   name: "ImageModal",
   props: ["imgName"],
-  data() {
-    return {
-      processedImage: "",
-      originalImage: ""
-    };
-  },
-  created() {
-    this.processedImage = "../assets/" + this.imgName + ".jpg";
-    this.originalImage = "../assets/" + this.imgName + "Original.jpg";
-  },
   methods: {
     closeImageModal() {
       this.$emit("closeImageModal");
@@ -55,28 +44,24 @@ img {
 .image--original {
   position: absolute;
   transform: translateY(-100%);
-  transition: opacity 600ms ease-in, transform 600ms ease-in;
+  animation: revealImage 4s infinite 3s;
 }
 
-.image--original:hover {
-  opacity: 0;
-}
 .image__container {
   position: relative;
   top: 50%;
   transform: translate(0%, -50%);
 }
-.closeBtn {
-  width: 10vw;
-  position: absolute;
-  z-index: 2000;
-  right: 10px;
-  top: 10px;
-}
-@media (orientation: landscape) {
-  .imageModal {
-    padding: 0vw 5vw;
-    box-sizing: border-box;
+
+@keyframes revealImage {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>
