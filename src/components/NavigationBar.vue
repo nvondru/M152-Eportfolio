@@ -94,7 +94,7 @@ a {
   left: 0px;
   height: 10vh;
   background-color: #dba72e;
-  transition: width 200ms ease-out, background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
 }
 
 @media only screen and (max-width: 600px) {

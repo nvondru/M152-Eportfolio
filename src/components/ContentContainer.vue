@@ -9,7 +9,7 @@
           <article class="articleContainer">
             <p>The work in this Portfolio is dedicated to the arts of juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
             <p>The logo was built first and serves as the core element for the rest of the website.</p>
-            <img ref="logoImg" @click="openModal($event)" class="logo" src="../assets/logo.svg" alt />
+            <img ref="logoImg" class="logo" src="../assets/logo.svg" alt />
           </article>
         </section>
         <section id="pictures" class="content__pictures" ref="pictures">
@@ -49,7 +49,7 @@
           <hr />
           <article class="articleContainer">
             <iframe
-              src="https://www.youtube.com/embed/TGcpovKTULM"
+              src="https://www.youtube.com/embed/8Fi9V6mi0ws"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -100,12 +100,6 @@ export default {
       handler() {
         if (this.loaded) {
           gsap.to(this.$refs.content, 1.5, { opacity: 1, ease: "EaseInOut" });
-          gsap.from(this.$refs.logoImg, 1.5, {
-            top: "-200%",
-            scale: "0",
-            rotation: "720deg",
-            ease: "EaseInOut"
-          });
         }
       }
     }
@@ -130,7 +124,7 @@ export default {
         this.$refs.contentContainer.scrollHeight -
         document.body.clientHeight +
         document.body.clientHeight / 10;
-      let scrolledPercent = Math.round((this.scrolledUnits / height) * 100);
+      let scrolledPercent = (this.scrolledUnits / height) * 100;
 
       if (this.scrolledTo("movie")) {
         this.activeContent = "movie";
@@ -245,13 +239,6 @@ iframe {
   max-width: 400px;
   display: initial;
   position: relative;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
 }
 
 @media only screen and (max-width: 1200px) {
