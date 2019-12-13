@@ -131,6 +131,7 @@ h1 {
   left: 50%;
   z-index: 30000;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 img {
   width: 100%;

@@ -10,6 +10,7 @@
             <p>The work in this Portfolio is dedicated to the arts of juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
             <p>The logo was built first and serves as the core element for the rest of the website.</p>
             <img ref="logoImg" class="logo" src="../assets/logo.svg" alt />
+            <p>In order to create the logo I used the Adobe Illustrator software which I can highly recommend. Inspiration for the design and color scheme was drawn from a simple Google search.</p>
           </article>
         </section>
         <section id="pictures" class="content__pictures" ref="pictures">
@@ -17,6 +18,7 @@
           <h1>Pictures</h1>
           <hr />
           <article class="articleContainer">
+            <h2>Forest Gate</h2>
             <div
               class="image__container"
               ref="firstPicture"
@@ -26,9 +28,13 @@
               <img class="image--processed" src="../assets/forestGate.jpg" alt />
               <img class="image--original" src="../assets/forestGateOriginal.jpg" alt />
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
+            <p>The composition of this image is set to draw the viewers attention to the middle of the screen.</p>
+            <p>In the process of editing the image I removed the distracting people walking on the path and intensified the warm colors for a more immersive autumn vibe. I accomplished that by shifting the white balance to a warmer tone and changing the hue of orange, yellow and green tones to a more redish tone.</p>
+            <p>I also used some brush selections to modify selected areas. I darkened the edges a bit to lead the attention to the middle. Also I darkened some overly exposed leaves and other areas at the edges, which were annoyingly bright.</p>
+            <p>Finally I brightened the center and the colored areas a bit to further increase the contrast.</p>
           </article>
           <article class="articleContainer">
+            <h2>Autumn Leaves</h2>
             <div
               class="image__container"
               @click="openModal('autumnLeaves', $event)"
@@ -37,7 +43,9 @@
               <img class="image--processed" src="../assets/autumnLeaves.jpg" alt />
               <img class="image--original" src="../assets/autumnLeavesOriginal.jpg" alt />
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere vel aliquid rem pariatur. Vitae voluptates accusantium ea deleniti nihil exercitationem esse quis, recusandae at? Ducimus obcaecati in ipsum, beatae ea corporis, molestias quisquam dignissimos fugiat incidunt illo odit recusandae veritatis dicta consequuntur repudiandae! Voluptates, itaque distinctio amet repellat nostrum laborum saepe veritatis a laudantium quisquam odit reiciendis earum, aperiam enim, natus necessitatibus? Corrupti dolor magni aspernatur vero, placeat veniam voluptas perferendis magnam cumque nisi ad nam exercitationem! Sint explicabo, minus earum excepturi magni incidunt modi reiciendis id dolorem tempore doloribus temporibus harum a itaque. Odio sapiente quos maxime consectetur quae?</p>
+            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
+            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
+            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
           </article>
         </section>
       </section>
@@ -48,16 +56,19 @@
           <h1>Movie</h1>
           <hr />
           <article class="articleContainer">
+            <h2>Autumn Juggling - A cinematic short</h2>
             <iframe
               src="https://www.youtube.com/embed/8Fi9V6mi0ws"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit unde ducimus fugit dignissimos libero commodi dolorem dicta veritatis harum ut, hic architecto nisi a quaerat necessitatibus tempora modi sed maiores nesciunt consequatur accusamus totam animi aliquam! Consequuntur nihil nam atque illo ad distinctio, dolorum facilis. Repellat debitis necessitatibus quisquam, officia odio reiciendis? Corrupti, impedit. Vel sunt labore obcaecati sit, illum eum praesentium perferendis voluptatum in, id harum sequi cum, neque ipsam corporis laborum est ad atque quaerat reiciendis distinctio itaque culpa nostrum? Necessitatibus nesciunt aperiam vero cupiditate qui, magni ab quas quos doloremque nihil accusamus a, dolorum ipsam eligendi. Quia.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit unde ducimus fugit dignissimos libero commodi dolorem dicta veritatis harum ut, hic architecto nisi a quaerat necessitatibus tempora modi sed maiores nesciunt consequatur accusamus totam animi aliquam! Consequuntur nihil nam atque illo ad distinctio, dolorum facilis. Repellat debitis necessitatibus quisquam, officia odio reiciendis? Corrupti, impedit. Vel sunt labore obcaecati sit, illum eum praesentium perferendis voluptatum in, id harum sequi cum, neque ipsam corporis laborum est ad atque quaerat reiciendis distinctio itaque culpa nostrum? Necessitatibus nesciunt aperiam vero cupiditate qui, magni ab quas quos doloremque nihil accusamus a, dolorum ipsam eligendi. Quia.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit unde ducimus fugit dignissimos libero commodi dolorem dicta veritatis harum ut, hic architecto nisi a quaerat necessitatibus tempora modi sed maiores nesciunt consequatur accusamus totam animi aliquam! Consequuntur nihil nam atque illo ad distinctio, dolorum facilis. Repellat debitis necessitatibus quisquam, officia odio reiciendis? Corrupti, impedit. Vel sunt labore obcaecati sit, illum eum praesentium perferendis voluptatum in, id harum sequi cum, neque ipsam corporis laborum est ad atque quaerat reiciendis distinctio itaque culpa nostrum? Necessitatibus nesciunt aperiam vero cupiditate qui, magni ab quas quos doloremque nihil accusamus a, dolorum ipsam eligendi. Quia.</p>
           </article>
+          <p>The movie breaks the ongoing color theme in some reagrds. There are much more cold blues and even greens instead of the dominating warm reds and oranges in the pictures.</p>
+          <p>For one I wanted to show, that autumn isn't all about warm bright colors but that it can also get very cold and mystic. Especially in St. Gallen (Switzerland) where I live, there's a lot of fog during autumn and it's often really cold. And that's the second reason. I never had the opportunity to get some good footage when the weather allowed for some warm shots. To film myself while I play with the Poi or Flowersticks I need to prepare some gear or have a friend with me to operate the camera.</p>
+          <p>From a technical point of view, I tried to create in ineresting movie out of the footage I had, even though it didn't necessarily meet the overall color scheme.</p>
+          <p>Actually I wanted more slow motion clips in the movie but by the time we could actually film me playing, it was already very dark and we did not have any additional lights with us, so we stayed with traditional 24 fps most of the time.</p>
+          <p>Initally I also had some more fancy transitions in mind, but when it came to recording the footage it all went really fast because we had a limited time window and it was literally freezing.</p>
         </section>
       </section>
     </div>
