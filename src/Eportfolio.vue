@@ -1,17 +1,22 @@
 <template>
   <div id="app" ref="app" class="noEvents">
-    <div class="bar--red"></div>
-    <NavigationBar
-      @logoLoaded="loadWebsite"
-      :scrolledPercent="scrolledPercent"
-      :activeContent="activeContent"
-    ></NavigationBar>
-    <ContentContainer
-      @scrolled="setScrolled"
-      @reachedFirstPicture="showTutorialPanel"
-      :loaded="loaded"
-      ref="contentContainer"
-    ></ContentContainer>
+    <div class="bar--red" ref="bar__red"></div>
+    <div id="nav__wrapper" ref="nav__wrapper">
+      <NavigationBar
+        @logoLoaded="loadWebsite"
+        :scrolledPercent="scrolledPercent"
+        :activeContent="activeContent"
+      ></NavigationBar>
+    </div>
+    <div id="content__wrapper" ref="content__wrapper">
+      <ContentContainer
+        @scrolled="setScrolled"
+        @reachedFirstPicture="showTutorialPanel"
+        :loaded="loaded"
+        ref="contentContainer"
+      ></ContentContainer>
+    </div>
+
     <transition name="fade">
       <TutorialPanel
         v-show="tutorialActive"
@@ -52,10 +57,25 @@ export default {
       var timeline = gsap.timeline({
         onComplete: () => this.$refs.app.classList.remove("noEvents")
       });
-      timeline.to(this.$refs.app, 1.5, {
-        gridTemplateRows: "0vh 10vh 90vh",
+      timeline.to(this.$refs.nav__wrapper, 1.5, {
+        height: "10%",
         ease: "EaseInOut"
       });
+      timeline.to(
+        this.$refs.bar__red,
+        1.5,
+        {
+          height: "0%",
+          ease: "EaseInOut"
+        },
+        "<"
+      );
+      timeline.to(
+        this.$refs.content__wrapper,
+        1.5,
+        { height: "90%", ease: "EaseInOut" },
+        "<"
+      );
     },
     setScrolled(scrolledPercent, activeContent) {
       this.scrolledPercent = scrolledPercent;
@@ -85,8 +105,6 @@ export default {
   padding: 0px;
   margin: 0px;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: 1fr 2fr 1fr;
 }
 .noEvents {
   pointer-events: none;
@@ -101,12 +119,22 @@ body {
 }
 .bar--red {
   background-color: #cf5230;
+  height: 25%;
 }
+#nav__wrapper {
+  height: 50%;
+}
+/* #content__wrapper {
+  height: 25%;
+} */
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.4s ease-in-out;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
+}
+p {
+  text-align: left;
 }
 </style>

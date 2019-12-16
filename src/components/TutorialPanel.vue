@@ -119,6 +119,8 @@ export default {
   color: white;
   padding: 0vw 15vw;
   box-sizing: border-box;
+  top: 0px;
+  left: 0px;
 }
 
 h1 {

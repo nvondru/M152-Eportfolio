@@ -34,6 +34,20 @@
             <p>Finally I brightened the center and the colored areas a bit to further increase the contrast.</p>
           </article>
           <article class="articleContainer">
+            <h2>Stick and Leaves</h2>
+            <div
+              class="image__container"
+              @click="openModal('stickAndLeaves', $event)"
+              @contextmenu="openModal('stickAndLeaves', $event)"
+            >
+              <img class="image--processed" src="../assets/stickAndLeaves.jpg" alt />
+              <img class="image--original" src="../assets/stickAndLeavesOriginal.jpg" alt />
+            </div>
+            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
+            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
+            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
+          </article>
+          <article class="articleContainer">
             <h2>Autumn Leaves</h2>
             <div
               class="image__container"
@@ -42,6 +56,20 @@
             >
               <img class="image--processed" src="../assets/autumnLeaves.jpg" alt />
               <img class="image--original" src="../assets/autumnLeavesOriginal.jpg" alt />
+            </div>
+            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
+            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
+            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
+          </article>
+          <article class="articleContainer">
+            <h2>Flowerstick</h2>
+            <div
+              class="image__container"
+              @click="openModal('flowerstick', $event)"
+              @contextmenu="openModal('flowerstick', $event)"
+            >
+              <img class="image--processed" src="../assets/flowerstick.jpg" alt />
+              <img class="image--original" src="../assets/flowerstickOriginal.jpg" alt />
             </div>
             <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
             <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
@@ -182,6 +210,7 @@ export default {
   text-align: center;
   overflow-y: auto;
   scroll-behavior: smooth;
+  height: 100%;
 
   /* #CF5230 */
   background-color: #dba72e;

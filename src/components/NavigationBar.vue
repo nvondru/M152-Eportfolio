@@ -31,7 +31,7 @@ export default {
       this.$emit("logoLoaded");
       var timeline = gsap.timeline();
       timeline.to(this.$refs.navigationBar, 1.5, {
-        gridTemplateColumns: "1fr 9vh 1fr",
+        gridTemplateColumns: "1fr 10vh 1fr",
         ease: "EaseInOut"
       });
       timeline.to(".link", 1, { opacity: 1.5, ease: "EaseInOut" }, "<");
@@ -60,7 +60,7 @@ export default {
 <style scoped>
 .navigation-bar {
   display: grid;
-  grid-template-columns: 33.33vw 33.33vw 33.33vw;
+  grid-template-columns: 1fr 50vh 1fr;
   text-align: center;
   width: 100%;
   height: 100%;
@@ -82,6 +82,10 @@ a {
   transition: transform 100ms;
   position: relative;
   z-index: 10;
+}
+
+.logo {
+  height: 100%;
 }
 
 .link {
@@ -106,6 +110,12 @@ a {
 @media only screen and (max-width: 900px) {
   a {
     font-size: 20px;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .navigation-bar {
+    grid-template-columns: 1fr 50vw 1fr;
   }
 }
 </style>
