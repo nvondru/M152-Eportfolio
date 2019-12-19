@@ -115,7 +115,7 @@ body {
   padding: 0px;
 }
 ::-webkit-scrollbar {
-  display: none;
+  /* display: none; */
 }
 .bar--red {
   background-color: #cf5230;
