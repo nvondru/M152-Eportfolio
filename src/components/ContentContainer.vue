@@ -17,6 +17,22 @@
           <hr />
           <h1>Pictures</h1>
           <hr />
+
+          <article class="articleContainer">
+            <h2>Stick and Leaves</h2>
+            <div
+              class="image__container"
+              @click="openModal('stickAndLeaves', $event)"
+              @contextmenu="openModal('stickAndLeaves', $event)"
+            >
+              <img class="image--processed" src="../assets/stickAndLeaves.jpg" alt />
+              <img class="image--original" src="../assets/stickAndLeavesOriginal.jpg" alt />
+            </div>
+            <p>On this image you can see a flowerstick. It is used to spin around your hands and can also be played with additional handle sticks. You can see it in action in the video below.</p>
+            <p>I increased the overall brightness of the image and increased the saturation a little bit to make the colors pop.</p>
+            <p>I also wanted to have some more crisp structures and details in the big leaf as well as the stripes of the stick. But if I had increased the structure of the whole image, this would have caused unwanted artifacts in the areas which are out of focus. So I created a brush selection and only increased the structure and sharpness on certain areas.</p>
+          </article>
+
           <article class="articleContainer">
             <h2>Forest Gate</h2>
             <div
@@ -33,20 +49,7 @@
             <p>I also used some brush selections to modify selected areas. I darkened the edges a bit to lead the attention to the middle. Also I darkened some overly exposed leaves and other areas at the edges, which were annoyingly bright.</p>
             <p>Finally I brightened the center and the colored areas a bit to further increase the contrast.</p>
           </article>
-          <article class="articleContainer">
-            <h2>Stick and Leaves</h2>
-            <div
-              class="image__container"
-              @click="openModal('stickAndLeaves', $event)"
-              @contextmenu="openModal('stickAndLeaves', $event)"
-            >
-              <img class="image--processed" src="../assets/stickAndLeaves.jpg" alt />
-              <img class="image--original" src="../assets/stickAndLeavesOriginal.jpg" alt />
-            </div>
-            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
-            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
-            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
-          </article>
+
           <article class="articleContainer">
             <h2>Autumn Leaves</h2>
             <div
@@ -61,6 +64,7 @@
             <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
             <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
           </article>
+
           <article class="articleContainer">
             <h2>Flowerstick</h2>
             <div
@@ -71,9 +75,10 @@
               <img class="image--processed" src="../assets/flowerstick.jpg" alt />
               <img class="image--original" src="../assets/flowerstickOriginal.jpg" alt />
             </div>
-            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
-            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
-            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
+            <p>On this image I really liked the sun which creates a bright background and shines through the leaves. The problrm is though, that the flowerstick gets really dark and you can see very few details of it.</p>
+            <p>In order to fix this I once more created a brush selection of the stick and increased the exposure on it. I tried to keep it looking natural and not too "HDR'ish".</p>
+            <p>Because there were no real orange leaves in the original image, I shifted the overall color temperature to the warm area and increased saturation on the oranges.</p>
+            <p>Finally I increased the overall exposure a bit while trying not to blow out the bright sky in the background.</p>
           </article>
         </section>
       </section>
@@ -92,9 +97,9 @@
               allowfullscreen
             ></iframe>
           </article>
-          <p>The movie breaks the ongoing color theme in some reagrds. There are much more cold blues and even greens instead of the dominating warm reds and oranges in the pictures.</p>
+          <p>The movie breaks the ongoing color theme in some regards. There are much more cold blues and even greens instead of the dominating warm reds and oranges in the pictures.</p>
           <p>For one I wanted to show, that autumn isn't all about warm bright colors but that it can also get very cold and mystic. Especially in St. Gallen (Switzerland) where I live, there's a lot of fog during autumn and it's often really cold. And that's the second reason. I never had the opportunity to get some good footage when the weather allowed for some warm shots. To film myself while I play with the Poi or Flowersticks I need to prepare some gear or have a friend with me to operate the camera.</p>
-          <p>From a technical point of view, I tried to create in ineresting movie out of the footage I had, even though it didn't necessarily meet the overall color scheme.</p>
+          <p>From a technical point of view, I tried to create in ineresting movie out of the footage I had, even though it doesn't necessarily meet the overall color scheme.</p>
           <p>Actually I wanted more slow motion clips in the movie but by the time we could actually film me playing, it was already very dark and we did not have any additional lights with us, so we stayed with traditional 24 fps most of the time.</p>
           <p>Initally I also had some more fancy transitions in mind, but when it came to recording the footage it all went really fast because we had a limited time window and it was literally freezing.</p>
         </section>
