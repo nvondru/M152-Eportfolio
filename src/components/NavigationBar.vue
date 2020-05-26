@@ -3,11 +3,14 @@
     <div ref="progressBar" class="progressBar"></div>
 
     <nav class="navigation-bar" ref="navigationBar">
-      <a class="link" href="#pictures">Pictures</a>
+      <a class="link" href="#welcome">Game</a>
       <a class="logo" ref="logo" href="#welcome">
-        <Logo :scrolledPercent="scrolledPercent" @logoLoaded="loadNavigationBar"></Logo>
+        <Logo
+          :scrolledPercent="scrolledPercent"
+          @logoLoaded="loadNavigationBar"
+        ></Logo>
       </a>
-      <a class="link" href="#movie">Movie</a>
+      <a class="link" href="#movie">Assets</a>
     </nav>
   </header>
 </template>
@@ -46,9 +49,9 @@ export default {
     activeContent: {
       handler() {
         if (this.activeContent === "pictures") {
-          this.$refs.progressBar.style.backgroundColor = "#cf5230";
+          this.$refs.progressBar.style.backgroundColor = "#C4AF5E";
         } else if (this.activeContent === "movie") {
-          this.$refs.progressBar.style.backgroundColor = "#dba72e";
+          this.$refs.progressBar.style.backgroundColor = "#C8C7AD";
         }
       }
     }
@@ -97,7 +100,7 @@ a {
   top: 0px;
   left: 0px;
   height: 10vh;
-  background-color: #dba72e;
+  background-color: #c4af5e;
   transition: background-color 250ms ease-in-out;
 }
 

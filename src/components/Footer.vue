@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <h4>© E-Portfolio made by Nicolas Vondru</h4>
+    <h4>© Showreel made by Nicolas Vondru</h4>
     <h4>niki.vondru@hotmail.ch</h4>
     <h4>Kolumbanstrasse 29, 9008, St. Gallen</h4>
   </div>

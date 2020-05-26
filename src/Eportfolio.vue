@@ -16,21 +16,12 @@
         ref="contentContainer"
       ></ContentContainer>
     </div>
-
-    <transition name="fade">
-      <TutorialPanel
-        v-show="tutorialActive"
-        @closeTutorialPanel="tutorialActive = false"
-        @openImageModal="openImageModal"
-      ></TutorialPanel>
-    </transition>
   </div>
 </template>
 
 <script>
 import NavigationBar from "./components/NavigationBar.vue";
 import ContentContainer from "./components/ContentContainer.vue";
-import TutorialPanel from "./components/TutorialPanel";
 
 import gsap from "gsap";
 
@@ -38,8 +29,7 @@ export default {
   name: "e-portfolio",
   components: {
     NavigationBar,
-    ContentContainer,
-    TutorialPanel
+    ContentContainer
   },
   data() {
     return {
@@ -118,7 +108,7 @@ body {
   /* display: none; */
 }
 .bar--red {
-  background-color: #cf5230;
+  background-color: #c4af5e;
   height: 25%;
 }
 #nav__wrapper {

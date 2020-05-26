@@ -1,8 +1,7 @@
 <template>
   <div class="imageModal" @click="closeImageModal">
     <div class="image__container">
-      <img class="image--processed" :src="resolveImgUrl(imgName)" alt />
-      <img class="image--original" :src="resolveImgUrl(imgName + 'Original')" alt />
+      <img class="image--original" :src="resolveImgUrl(imgName)" alt />
     </div>
   </div>
 </template>
@@ -16,8 +15,8 @@ export default {
       this.$emit("closeImageModal");
     },
     resolveImgUrl(imgName) {
-      var images = require.context("../assets/", false, /\.jpg$/);
-      return images("./" + imgName + ".jpg");
+      var images = require.context("../assets/", false, /\.png$/);
+      return images("./" + imgName + ".png");
     }
   }
 };
@@ -39,29 +38,12 @@ img {
   padding: 0px;
   display: block;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.image--original {
-  position: absolute;
-  transform: translateY(-100%);
-  animation: revealImage 4s infinite 1s;
+  max-height: 80vh;
 }
 
 .image__container {
   position: relative;
   top: 50%;
   transform: translate(0%, -50%);
-}
-
-@keyframes revealImage {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 </style>

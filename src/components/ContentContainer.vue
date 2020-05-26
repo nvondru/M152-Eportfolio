@@ -1,107 +1,234 @@
 <template>
-  <div @scroll="handleScroll($event)" class="content-container" ref="contentContainer">
+  <div
+    @scroll="handleScroll($event)"
+    class="content-container"
+    ref="contentContainer"
+  >
     <div id="welcome" class="content--invisible" ref="content">
       <section class="content content--yellow">
         <section class="content__welcome" ref="welcome">
           <hr />
-          <h1>Welcome to my E-Portfolio "Juggling in autumn"</h1>
+          <h1>Showreel: Age of War</h1>
           <hr />
           <article class="articleContainer">
-            <p>The work in this Portfolio is dedicated to the arts of juggling. Because this project was elaborated in autumn, the pictures and the website are kept in an autumn flavoured style.</p>
-            <p>The logo was built first and serves as the core element for the rest of the website.</p>
-            <img ref="logoImg" class="logo" src="../assets/logo.svg" alt />
-            <p>In order to create the logo I used the Adobe Illustrator software which I can highly recommend. Inspiration for the design and color scheme was drawn from a simple Google search.</p>
-          </article>
-        </section>
-        <section id="pictures" class="content__pictures" ref="pictures">
-          <hr />
-          <h1>Pictures</h1>
-          <hr />
+            <p>
+              This project is inspired by the original game 'Age of War' from
+              Louissi, published on New Grounds in 2007. All used assets are
+              created by Nicolas Vondru. The only execption is the soundtrack
+              which is used from the original game.
+            </p>
+            <iframe
+              src="http://127.0.0.1:5500/index.html"
+              style="border:0px #ffffff none;"
+              name="myiFrame"
+              scrolling="no"
+              frameborder="1"
+              marginheight="0px"
+              marginwidth="0px"
+              height="600px"
+              width="960px"
+              allowfullscreen
+            ></iframe>
 
-          <article class="articleContainer">
-            <h2>Stick and Leaves</h2>
-            <div
-              class="image__container"
-              @click="openModal('stickAndLeaves', $event)"
-              @contextmenu="openModal('stickAndLeaves', $event)"
-            >
-              <img class="image--processed" src="../assets/stickAndLeaves.jpg" alt />
-              <img class="image--original" src="../assets/stickAndLeavesOriginal.jpg" alt />
+            <div class="logoBar">
+              <div>Created with:</div>
+              <img src="../assets/unity.png" alt="" class="logo--small" />
+              <div>+</div>
+              <img src="../assets/photoshop.png" alt="" class="logo--small" />
+              <div>+</div>
+              <img src="../assets/illustrator.png" alt="" class="logo--small" />
+              <div>+</div>
+              <img src="../assets/audition.png" alt="" class="logo--small" />
             </div>
-            <p>On this image you can see a flowerstick. It is used to spin around your hands and can also be played with additional handle sticks. You can see it in action in the video below.</p>
-            <p>I increased the overall brightness of the image and increased the saturation a little bit to make the colors pop.</p>
-            <p>I also wanted to have some more crisp structures and details in the big leaf as well as the stripes of the stick. But if I had increased the structure of the whole image, this would have caused unwanted artifacts in the areas which are out of focus. So I created a brush selection and only increased the structure and sharpness on certain areas.</p>
-          </article>
-
-          <article class="articleContainer">
-            <h2>Forest Gate</h2>
-            <div
-              class="image__container"
-              ref="firstPicture"
-              @click="openModal('forestGate', $event)"
-              @contextmenu="openModal('forestGate', $event)"
-            >
-              <img class="image--processed" src="../assets/forestGate.jpg" alt />
-              <img class="image--original" src="../assets/forestGateOriginal.jpg" alt />
-            </div>
-            <p>The composition of this image is set to draw the viewers attention to the middle of the screen.</p>
-            <p>In the process of editing the image I removed the distracting people walking on the path and intensified the warm colors for a more immersive autumn vibe. I accomplished that by shifting the white balance to a warmer tone and changing the hue of orange, yellow and green tones to a more redish tone.</p>
-            <p>I also used some brush selections to modify selected areas. I darkened the edges a bit to lead the attention to the middle. Also I darkened some overly exposed leaves and other areas at the edges, which were annoyingly bright.</p>
-            <p>Finally I brightened the center and the colored areas a bit to further increase the contrast.</p>
-          </article>
-
-          <article class="articleContainer">
-            <h2>Autumn Leaves</h2>
-            <div
-              class="image__container"
-              @click="openModal('autumnLeaves', $event)"
-              @contextmenu="openModal('autumnLeaves', $event)"
-            >
-              <img class="image--processed" src="../assets/autumnLeaves.jpg" alt />
-              <img class="image--original" src="../assets/autumnLeavesOriginal.jpg" alt />
-            </div>
-            <p>The tree on the left serves as a framing element and leads the viewers attention to the more colorful center of the image.</p>
-            <p>Overall I already liked the original image and decided to only create some more contrast, by lifting the whites and lowering the darks a bit. Similar to the above image I intesified the red / orange and yellow colors to have some more autumn vibes in there.</p>
-            <p>Because there already is so much color I decided to dump the saturation on all the blues and greens so that the lake and the sky are not that saturated. But I really liked the green moss on the tree, so I created a brush selection and removed this effect for the moss.</p>
-          </article>
-
-          <article class="articleContainer">
-            <h2>Flowerstick</h2>
-            <div
-              class="image__container"
-              @click="openModal('flowerstick', $event)"
-              @contextmenu="openModal('flowerstick', $event)"
-            >
-              <img class="image--processed" src="../assets/flowerstick.jpg" alt />
-              <img class="image--original" src="../assets/flowerstickOriginal.jpg" alt />
-            </div>
-            <p>On this image I really liked the sun which creates a bright background and shines through the leaves. The problrm is though, that the flowerstick gets really dark and you can see very few details of it.</p>
-            <p>In order to fix this I once more created a brush selection of the stick and increased the exposure on it. I tried to keep it looking natural and not too "HDR'ish".</p>
-            <p>Because there were no real orange leaves in the original image, I shifted the overall color temperature to the warm area and increased saturation on the oranges.</p>
-            <p>Finally I increased the overall exposure a bit while trying not to blow out the bright sky in the background.</p>
           </article>
         </section>
       </section>
 
-      <section id="movie" class="content content--red" ref="movie">
-        <section class="content__film">
+      <section id="movie" class="content content--red" ref="pictures">
+        <section id="pictures" class="content__pictures" ref="pictures">
           <hr />
-          <h1>Movie</h1>
+          <h1>Assets</h1>
           <hr />
+
           <article class="articleContainer">
-            <h2>Autumn Juggling - A cinematic short</h2>
-            <iframe
-              src="https://www.youtube.com/embed/8Fi9V6mi0ws"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <div class="subTitle">
+              <h2>Photoshop</h2>
+              <img class="title__logo" src="../assets/photoshop.png" alt="" />
+            </div>
+
+            <div
+              class="image__container"
+              @click="openModal('sm_showreel', $event)"
+              @contextmenu="openModal('sm_showreel', $event)"
+            >
+              <img
+                class="image--processed"
+                src="../assets/sm_showreel.png"
+                alt
+              />
+            </div>
+
+            <div
+              class="image__container"
+              @click="openModal('background', $event)"
+              @contextmenu="openModal('background', $event)"
+            >
+              <img
+                class="image--processed"
+                src="../assets/background.png"
+                alt
+              />
+            </div>
+            <div
+              class="image__container"
+              @click="openModal('base_showreel', $event)"
+              @contextmenu="openModal('base_showreel', $event)"
+            >
+              <img
+                class="image--processed"
+                src="../assets/base_showreel.png"
+                alt
+              />
+            </div>
+            <div
+              style="display: inline-flex; height: 400px; margin: 0px 0px 100px 0px"
+            >
+              <div
+                class="image__container"
+                @click="openModal('archer', $event)"
+                @contextmenu="openModal('archer', $event)"
+              >
+                <img
+                  style="height: 400px; width: auto;"
+                  class="image--processed"
+                  src="../assets/archer.png"
+                  alt
+                />
+              </div>
+              <div
+                class="image__container"
+                @click="openModal('coin', $event)"
+                @contextmenu="openModal('coin', $event)"
+              >
+                <img
+                  style="height: 400px; width: auto; margin-left:120px"
+                  class="image--processed"
+                  src="../assets/coin.png"
+                  alt
+                />
+              </div>
+            </div>
           </article>
-          <p>The movie breaks the ongoing color theme in some regards. There are much more cold blues and even greens instead of the dominating warm reds and oranges in the pictures.</p>
-          <p>For one I wanted to show, that autumn isn't all about warm bright colors but that it can also get very cold and mystic. Especially in St. Gallen (Switzerland) where I live, there's a lot of fog during autumn and it's often really cold. And that's the second reason. I never had the opportunity to get some good footage when the weather allowed for some warm shots. To film myself while I play with the Poi or Flowersticks I need to prepare some gear or have a friend with me to operate the camera.</p>
-          <p>From a technical point of view, I tried to create in ineresting movie out of the footage I had, even though it doesn't necessarily meet the overall color scheme.</p>
-          <p>Actually I wanted more slow motion clips in the movie but by the time we could actually film me playing, it was already very dark and we did not have any additional lights with us, so we stayed with traditional 24 fps most of the time.</p>
-          <p>Initally I also had some more fancy transitions in mind, but when it came to recording the footage it all went really fast because we had a limited time window and it was literally freezing.</p>
+
+          <hr />
+
+          <article class="articleContainer">
+            <div class="subTitle">
+              <h2>Illustrator</h2>
+              <img class="title__logo" src="../assets/illustrator.png" alt="" />
+            </div>
+
+            <p></p>
+
+            <div
+              style="display: inline-flex; height: 300px; margin: 70px 0px; align-items: center"
+            >
+              <div
+                class="image__container"
+                @click="openModal('sword', $event)"
+                @contextmenu="openModal('sword', $event)"
+              >
+                <img
+                  style="height: 200px; width: auto;"
+                  class="image--processed"
+                  src="../assets/sword.png"
+                  alt
+                />
+              </div>
+              <div
+                class="image__container"
+                @click="openModal('bow', $event)"
+                @contextmenu="openModal('bow', $event)"
+              >
+                <img
+                  style="height: 200px; width: auto; margin-left:60px"
+                  class="image--processed"
+                  src="../assets/bow.png"
+                  alt
+                />
+              </div>
+              <div
+                class="image__container"
+                @click="openModal('swapLeft', $event)"
+                @contextmenu="openModal('swapLeft', $event)"
+              >
+                <img
+                  style="height: 100px; width: auto; margin-left:60px"
+                  class="image--processed"
+                  src="../assets/swapLeft.png"
+                  alt
+                />
+              </div>
+              <div
+                class="image__container"
+                @click="openModal('swapRight', $event)"
+                @contextmenu="openModal('swapRight', $event)"
+              >
+                <img
+                  style="height: 100px; width: auto; margin-left:60px"
+                  class="image--processed"
+                  src="../assets/swapRight.png"
+                  alt
+                />
+              </div>
+            </div>
+          </article>
+
+          <hr />
+
+          <article class="articleContainer">
+            <div class="subTitle">
+              <h2>Audition</h2>
+              <img class="title__logo" src="../assets/audition.png" alt="" />
+            </div>
+            <p></p>
+            <div
+              style="display: inline-flex; height: 300px; margin: 70px 0px; align-items: center"
+            >
+              <div
+                class="image__container"
+                @click="playSound('swordSound')"
+                @contextmenu="openModal('swordSound', $event)"
+              >
+                <img
+                  style="height: 300px; width: auto;"
+                  class="image--processed"
+                  src="../assets/swordSound.png"
+                  alt
+                />
+              </div>
+              <h2 style="margin-left: 120px">Sword swinging sound</h2>
+            </div>
+            <p></p>
+            <div
+              style="display: inline-flex; height: 300px; margin: 70px 0px; align-items: center"
+            >
+              <h2>Bow flinging sound</h2>
+
+              <div
+                class="image__container"
+                @click="playSound('bowSound')"
+                @contextmenu="openModal('bowSound', $event)"
+              >
+                <img
+                  style="height: 300px; width: auto; margin-left:60px"
+                  class="image--processed"
+                  src="../assets/bowSound.png"
+                  alt
+                />
+              </div>
+            </div>
+          </article>
         </section>
       </section>
     </div>
@@ -190,6 +317,11 @@ export default {
         this.createModal(imgName);
       }
     },
+    playSound(soundName) {
+      var path = require.context("../assets/sounds/", false, /\.mp3$/);
+      var audio = new Audio(path("./" + soundName + ".mp3"));
+      audio.play();
+    },
     createModal(imgName) {
       this.imageModal.imgName = imgName;
       this.imageModal.open = true;
@@ -218,7 +350,7 @@ export default {
   height: 100%;
 
   /* #CF5230 */
-  background-color: #dba72e;
+  background-color: #c8c7ad;
   box-sizing: border-box;
 }
 .content {
@@ -229,24 +361,24 @@ export default {
   opacity: 0;
 }
 
+.content--yellow {
+  height: 90vh;
+}
+
 .content--red {
-  background-color: #cf5230;
+  background-color: #c4af5e;
 }
 .content--red * {
-  color: #e6c098;
+  color: #292411;
 }
-.content--red hr {
-  background-color: #e6c098;
-  color: #e6c098;
-  border: 2px #e6c098 solid;
-}
+
 hr {
   background-color: #6e352c;
   color: #6e352c;
   border: 2px #6e352c solid;
 }
 .articleContainer {
-  margin: 4% 10%;
+  margin: 2% 10%;
 }
 img {
   width: 100%;
@@ -258,17 +390,9 @@ img {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.image--original {
-  position: absolute;
-  transform: translateY(-100%);
-  transition: opacity 600ms ease-in, transform 600ms ease-in;
-}
-
-.image--original:hover {
-  opacity: 0;
-}
 .image__container {
   position: relative;
+  margin: 80px 0px;
 }
 p {
   font-size: 1.5rem;
@@ -276,10 +400,7 @@ p {
 h1 {
   font-size: 200%;
 }
-iframe {
-  width: 64vw;
-  height: 36vw;
-}
+
 .logo {
   max-width: 400px;
   display: initial;
@@ -314,5 +435,31 @@ iframe {
   p {
     font-size: 1.2rem;
   }
+}
+
+.logoBar {
+  display: inline-flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+.logoBar * {
+  margin-left: 20px;
+}
+.logo--small {
+  height: 60px;
+  border-radius: 0px;
+  width: auto;
+}
+.title__logo {
+  height: 80px;
+  width: auto;
+  border-radius: 0px;
+  margin-left: 40px;
+}
+.subTitle {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 30px;
 }
 </style>
